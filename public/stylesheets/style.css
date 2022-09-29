@@ -1,0 +1,19 @@
+:root {
+    --highlightColor: #7DC748;
+    --detailColor: #D3E0CA;
+    --darkColor: #38472E;
+}
+
+
+header.navbar {
+    background-color: var(--highlightColor);
+}
+
+.navbar a:visited {
+    color: var(--detailColor);
+}
+
+.icon {
+    color: var(--detailColor);
+    margin-left: 2px;
+}

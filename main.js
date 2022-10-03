@@ -6,6 +6,8 @@ const db = new sqlite3.Database('./database.db');
 const bcrypt = require('bcryptjs');
 const app = express();
 
+const BCRYPT_SALT = bcrypt.genSalt(20);
+
 app.engine("hbs", expressHandlebars.engine({
     defaultLayout: "index.hbs"
 }));
@@ -46,6 +48,9 @@ app.get("/createAccount", function (request, response) {
 
 app.post("/createAccount", function (request, response){
     console.log(request.body.username);
+    console.log(BCRYPT_SALT);
+    const encryptedPassword = bcrypt.hashSync(request.body.password, BCRYPT_SALT);
+    console.log(encryptedPassword)
     response.redirect("/");
 });
 

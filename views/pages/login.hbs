@@ -1,6 +1,11 @@
 <h2>Login</h2>
-<form action="/login" method="post">
-    <input name="username" type="text" placeholder="Username"/>
+<form action="login" method="post">
+    {{attemptedUsername}}
+    {{accountID}}
+    {{#if loginFailure }}
+        <p>Username and password did not match.</p>
+    {{/if}}
+    <input name="username" type="text" value="{{attemptedUsername}}" placeholder="Username"/>
     <input name="password" type="password" placeholder="Password"/>
     <input type="submit" content="Login"/>
 </form>

@@ -2,19 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/bigProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/.idea/views.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dbSetup.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/createAccount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/thread.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/pages/user.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/createAccount.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/showAllHumans.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/index.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +53,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Settings.JavaScript"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -45,6 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1664526340993</updated>
       <workItem from="1664526342512" duration="1246000" />
+      <workItem from="1664919830428" duration="3000" />
+      <workItem from="1664988119925" duration="16000" />
+      <workItem from="1665059838287" duration="6692000" />
+      <workItem from="1665150109922" duration="2000" />
+      <workItem from="1665152774541" duration="7691000" />
+      <workItem from="1665242765160" duration="1141000" />
+      <workItem from="1665393717217" duration="9000" />
+      <workItem from="1665743051211" duration="19867000" />
     </task>
     <servers />
   </component>
@@ -61,5 +95,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

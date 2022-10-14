@@ -1,5 +1,10 @@
 <h2>Create Account</h2>
 <form action="/createAccount" method="post">
+    <ul>
+        {{#each formErrors}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
     <input name="username" type="text" placeholder="Username"/>
     <input name="newPassword" type="password" placeholder="Password"/>
     <input name="reenteredPassword" type="password" placeholder="Reenter Password"/>

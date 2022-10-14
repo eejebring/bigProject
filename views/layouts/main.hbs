@@ -30,9 +30,22 @@
                 <li class="nav-item">
                     <a href="/about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/login">Login</a>
-                </li>
+                {{#if role}}
+                    <li class="nav-item">
+                        <form action="/account" method="get">
+                            <input type="submit" value="My account" class="link">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="post">
+                            <input type="submit" value="Logout" class="link">
+                        </form>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a href="/login">Login</a>
+                    </li>
+                {{/if}}
             </ul>
         </div>
         {{{body}}}

@@ -1,68 +1,43 @@
-const express = require('express');
-const expressHandlebars = require('express-handlebars');
-const expressFileUpload = require('express-fileupload');
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('./database.db');
-const bcrypt = require('bcryptjs');
+const express = require("express");
+const expressHandlebars = require("express-handlebars");
+const expressFileUpload = require("express-fileupload");
+const expressSession = require("express-session")
+const sqlite3 = require("sqlite3");
+const db = new sqlite3.Database("./database.db");
 const app = express();
 
-const BCRYPT_SALT = bcrypt.genSalt(20);
+const index = require("./javascript/index.js");
+const about = require("./javascript/about.js");
+const account = {
+    user:require("./javascript/user.js"),
+    login:require("./javascript/login.js"),
+    create:require("./javascript/createAccount.js")
+}
 
 app.engine("hbs", expressHandlebars.engine({
-    defaultLayout: "index.hbs"
+    defaultLayout: "main.hbs"
 }));
 
 app.use(
     express.static("public"),
-    express.urlencoded({extended:false})
-    );
+    express.urlencoded({extended:false}),
+    expressSession({
+        resave:false,
+        saveUninitialized:false,
+        secret: "mhwsdfpqivzz"
+    })
+);
 
-app.get("/", function(request, response){
-    db.all("select * from humans", function (error, humans) {
-        if (error) {
-            console.log(error.message);
-        }
-        else {
-            const model = {
-                humans:humans,
-                pageTitle: "Home"
-            };
-            response.render("pages/showAllHumans.hbs", model);
-        };
-    });
-});
+app.get("/", (request, response) => index.renderPage(request, response));
+app.get("/about", (request, response) => about.renderPage(request,response));
+app.get("/login", (request, response) => account.login.renderPage(request, response));
+app.get("/createAccount", (request, response) => account.create.renderPage(request, response));
+app.get("/account", (request, response) => account.user.renderPage(request, response));
 
-app.get("/about", function(request, response) {
-    const model = {pageTitle: "About"};
-    response.render("pages/about.hbs",model);
-});
-
-app.get("/login", function (request, response) {
-    const model = {pageTitle: "Login"};
-   response.render("pages/login.hbs", model)
-});
-
-app.get("/createAccount", function (request, response) {
-    response.render("pages/createAccount.hbs")
-});
-
-app.post("/createAccount", function (request, response){
-    console.log(request.body.username);
-    console.log(BCRYPT_SALT);
-    const encryptedPassword = bcrypt.hashSync(request.body.password, BCRYPT_SALT);
-    console.log(encryptedPassword)
-    response.redirect("/");
-});
-
-/*db.run("create table webpages (" +
-    "pageID int identity primary key," +
-    "name varchar(255)," +
-    "title varchar(255)," +
-    "layout int not null)",
-    function (error) {
-    if (error) {
-        console.log(error.message);
-    }
-});*/
+app.post("/login", (request, response) => account.login.loginRequest(request, response));
+app.post("/createAccount", (request, response) => account.create.createNew(request, response));
+app.post("/changeNickname", (request, response) => account.user.changeNickname(request, response));
+app.post("/logout", (request, response) => account.login.logout(request, response));
+app.post("/changePassword", (request, response) => account.user.changePassword(request, response));
 
 app.listen(8080);

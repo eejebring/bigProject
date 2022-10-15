@@ -4,16 +4,18 @@
     --darkColor: #38472E;
 }
 
-
-header.navbar {
-    background-color: var(--highlightColor);
+.start {
+    height: 100vh;
 }
 
-.navbar a:visited {
-    color: var(--detailColor);
+.start > h2 {
+    padding-top: 25vh;
 }
 
-.icon {
-    color: var(--detailColor);
-    margin-left: 2px;
+.start > div {
+    margin-top: 3em;
+}
+
+.height-2 {
+    padding: 1em;
 }

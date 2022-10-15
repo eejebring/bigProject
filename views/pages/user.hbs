@@ -1,34 +1,55 @@
-<h2>Your account</h2>
+<header class="text-center">
+    <h2>Your account</h2>
+</header>
 {{#if success}}
-    <p>{{success}}</p>
+    <p><span class="label label-success">{{success}}</span></p>
 {{/if}}
-<p>Username: {{username}}</p>
-<p>Role: {{userTitle}}</p>
-<form action="changeNickname" method="post">
-    <ul>
-        {{#each nicknameFormErrors}}
-            <li>{{this}}</li>
-        {{/each}}
-    </ul>
-    <label for="nickname">Nickname:</label>
-    <input name="nickname" id="nickname" type="text" value="{{nickname}}"/>
-    <input type="submit" value="Change nickname"/>
-</form>
-<form action="changePassword" method="post">
-    <h2>Change password</h2>
-    <ul>
-        {{#each passwordFormErrors}}
-            <li>{{this}}</li>
-        {{/each}}
-    </ul>
-    <label for="currentPassword">Current password:</label>
-    <input name="currentPassword" id="currentPassword" type="password"/>
+<section class="columns">
+    <h3 class="column col-12">Details</h3>
 
-    <label for="newPassword">New password:</label>
-    <input name="newPassword" id="newPassword" type="password"/>
+    <span class="label text-right column col-4">Username: </span>
+    <span class="column col-8 text-left">{{username}}</span>
 
-    <label for="reenteredPassword">Repeat password:</label>
-    <input name="reenteredPassword" id="reenteredPassword" type="password"/>
+    <span class="label text-right column col-4">Role:</span>
+    <span class="column col-8 text-left">{{userTitle}}</span>
 
-    <input type="submit" value="Change password">
-</form>
+    <span class="label text-right column col-4">Nickname:</span>
+    <span class="column col-8 text-left">{{nickname}}</span>
+
+</section>
+<section>
+    <form action="changeNickname" method="post" class="columns">
+        <h3 class="column col-12">Change nickname</h3>
+        {{#if nicknameFormErrors}}
+            <ul class="column col-12">
+                {{#each nicknameFormErrors}}
+                    <li> <span class="label label-error">{{this}}</span></li>
+                {{/each}}
+            </ul>
+        {{/if}}
+        <label for="nickname" class="label text-right col-4">Nickname:</label>
+        <input name="nickname" id="nickname" type="text" class="column col-8 text-left" value="{{nickname}}"/>
+        <input type="submit" class="col-mx-auto" value="Change nickname"/>
+    </form>
+</section>
+<div class="divider"></div>
+<section class="columns">
+    <form action="changePassword" method="post" class="columns">
+        <h3 class="column col-12">Change password</h3>
+        <ul class="column col-12">
+            {{#each passwordFormErrors}}
+                <li><span class="label label-error">{{this}}</span></li>
+            {{/each}}
+        </ul>
+        <label for="currentPassword" class="label text-right column col-4">Current password:</label>
+        <input name="currentPassword" id="currentPassword" class="column col-8 text-left" type="password"/>
+
+        <label for="newPassword" class="label text-right column col-4">New password:</label>
+        <input name="newPassword" id="newPassword" class="column col-8 text-left" type="password"/>
+
+        <label for="reenteredPassword" class="label text-right column col-4">Repeat password:</label>
+        <input name="reenteredPassword" id="reenteredPassword" class="column col-8 text-left" type="password"/>
+
+        <input type="submit" class="col-mx-auto" value="Change password">
+    </form>
+</section>

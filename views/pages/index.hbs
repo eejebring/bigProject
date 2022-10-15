@@ -1,10 +1,31 @@
-<h2>All Humans</h2>
-{{#if humans.length}}
-  <ul>
-    {{#each threads}}
-      <li>{{title}}</li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>No threads here :(</p>
-{{/if}}
+<section class="start bg-gray">
+    <h2 class="text-center">Browse & create threads</h2>
+    <div class="text-center">
+        {{#if role}}
+            <a href="/createTopic" class="text-light bg-primary text-large height-2">
+                Create new topic
+            </a>
+        {{else}}
+            <a href="/login" class="text-light bg-primary text-large height-2">
+                Login
+            </a>
+        {{/if}}
+    </div>
+    <div class="text-center">
+        <a href="#threads" class="text-light bg-primary text-large height-2">
+            Browse <i class="icon icon-arrow-down icon-2x"></i>
+        </a>
+    </div>
+</section>
+<section id="topics">
+    <h3>Topics</h3>
+    {{#if topics.length}}
+        <ul>
+            {{#each topics}}
+                <li>{{title}}</li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No threads here :(</p>
+    {{/if}}
+</section>

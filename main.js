@@ -2,16 +2,19 @@ const express = require("express");
 const expressHandlebars = require("express-handlebars");
 const expressFileUpload = require("express-fileupload");
 const expressSession = require("express-session")
-const sqlite3 = require("sqlite3");
-const db = new sqlite3.Database("./database.db");
+const connectSqlite3 = require("connect-sqlite3");
+const SQLiteStore = connectSqlite3(expressSession)
 const app = express();
 
-const index = require("./javascript/index.js");
-const about = require("./javascript/about.js");
+const index = require("./javascript/index");
+const about = require("./javascript/about");
 const account = {
-    user:require("./javascript/user.js"),
-    login:require("./javascript/login.js"),
-    create:require("./javascript/createAccount.js")
+    user:require("./javascript/user"),
+    login:require("./javascript/login"),
+    create:require("./javascript/createAccount")
+}
+const topic = {
+    create:require("./javascript/createTopic")
 }
 
 app.engine("hbs", expressHandlebars.engine({
@@ -24,7 +27,11 @@ app.use(
     expressSession({
         resave:false,
         saveUninitialized:false,
-        secret: "mhwsdfpqivzz"
+        secret: "mhwsdfpqivzz",
+        store: new SQLiteStore({
+            db:"database.db",
+            table:"sessions"
+        })
     })
 );
 
@@ -33,11 +40,13 @@ app.get("/about", (request, response) => about.renderPage(request,response));
 app.get("/login", (request, response) => account.login.renderPage(request, response));
 app.get("/createAccount", (request, response) => account.create.renderPage(request, response));
 app.get("/account", (request, response) => account.user.renderPage(request, response));
+app.get("/logout", (request, response) => account.login.logout(request, response));
+app.get("/createTopic", (request, response) => topic.create.renderPage(request, response));
 
 app.post("/login", (request, response) => account.login.loginRequest(request, response));
 app.post("/createAccount", (request, response) => account.create.createNew(request, response));
 app.post("/changeNickname", (request, response) => account.user.changeNickname(request, response));
-app.post("/logout", (request, response) => account.login.logout(request, response));
 app.post("/changePassword", (request, response) => account.user.changePassword(request, response));
+app.post("/createTopic", (request, response) => topic.create.createNew(request, response));
 
 app.listen(8080);

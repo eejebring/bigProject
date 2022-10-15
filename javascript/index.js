@@ -5,14 +5,14 @@ const errorPage = require("./errors");
 const mainModel = require("./layout");
 
 function renderPage (request, response) {
-    db.all("select title from thread", function (error, threads) {
+    db.all("select title from topic", (error, topics) => {
         if (error) {
             errorPage.internalServer(response);
         }
         else {
             const model = {
                 ...mainModel(request),
-                humans:threads,
+                topics:topics,
                 pageTitle: "Home"
             }
             console.log(model)

@@ -1,0 +1,22 @@
+<header>
+    <h2 class="text-center">Create Topic</h2>
+</header>
+<section>
+    <form action="createTopic" method="post" class="columns">
+        <h3 class="column col-12">Change nickname</h3>
+        {{#if formErrors}}
+            <ul class="column col-12">
+                {{#each formErrors}}
+                    <li> <span class="label label-error">{{this}}</span></li>
+                {{/each}}
+            </ul>
+        {{/if}}
+        <label for="title" class="label text-right col-4">Title:</label>
+        <input name="title" id="title" type="text" class="column col-8 text-left" placeholder=""/>
+
+        <label for="context" class="label text-right col-4">Context:</label>
+        <span class="column col-8 text-left">Max 512 symbols</span>
+        <textarea name="context" id="context" class="column col-12" placeholder="The question is..."></textarea>
+        <input type="submit" class="col-mx-auto" value="Create topic"/>
+    </form>
+</section>

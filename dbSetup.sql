@@ -26,9 +26,9 @@ insert into account (roleID, username, password) values
 
 select username from account;
 
-create table if not exists thread
+create table if not exists topic
 (
-    threadID integer primary key autoincrement,
+    topicID integer primary key autoincrement,
     ownerID integer not null,
     title varchar(64) not null,
     context varchar(512),
@@ -37,16 +37,14 @@ create table if not exists thread
     foreign key (ownerID) references account(accountID)
 );
 
-update account set password
-
 create table if not exists comment
 (
     commentID integer primary key autoincrement,
     ownerID integer not null,
-    threadID integer not null,
+    topicID integer not null,
     content varchar(255) not null,
     foreign key (ownerID) references account(accountID),
-    foreign key (threadID) references thread(threadID)
+    foreign key (topicID) references topic(topicID)
 );
 
 select accountID, username, password from account;
@@ -62,4 +60,6 @@ where accountID = 1;
 
 update account
 set nickname = 'srfhaapfijmnnp'
-where accountID = 1
+where accountID = 1;
+
+select threadID from topic where ownerID = 1 order by age desc;

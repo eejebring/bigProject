@@ -5,7 +5,7 @@ const errorPage = require("./errors");
 const mainModel = require("./layout");
 
 function renderPage (request, response) {
-    db.all("select title from topic", (error, topics) => {
+    db.all("select topicID, title from topic", (error, topics) => {
         if (error) {
             errorPage.internalServer(response);
         }
@@ -15,7 +15,6 @@ function renderPage (request, response) {
                 topics:topics,
                 pageTitle: "Home"
             }
-            console.log(model)
             response.render("pages/index.hbs", model);
         }
     });

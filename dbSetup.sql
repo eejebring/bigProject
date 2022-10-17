@@ -26,6 +26,10 @@ insert into account (roleID, username, password) values
 
 select username from account;
 
+select * from topic;
+
+select* from topic where topicID = 4 and ownerID = 3;
+
 create table if not exists topic
 (
     topicID integer primary key autoincrement,
@@ -47,7 +51,11 @@ create table if not exists comment
     foreign key (topicID) references topic(topicID)
 );
 
+insert into comment (ownerID, topicID, content) VALUES (?,?,?);
+select * from comment;
 select accountID, username, password from account;
+
+delete from comment where content = '';
 
 select username,title from account
 join roles r on account.roleID = r.roleID;
@@ -62,4 +70,4 @@ update account
 set nickname = 'srfhaapfijmnnp'
 where accountID = 1;
 
-select threadID from topic where ownerID = 1 order by age desc;
+select title, context, age, username, nickname, hasImage from topic join account a on a.accountID = topic.ownerID where topicID = 1;

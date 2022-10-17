@@ -16,6 +16,14 @@
     margin-top: 3em;
 }
 
-.height-2 {
+.padding-1 {
     padding: 1em;
+}
+
+.padding-3 {
+    padding: 3em;
+}
+
+.dropdown {
+    z-index: 1000;
 }

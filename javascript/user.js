@@ -30,6 +30,17 @@ function renderPage(request, response, args = {}) {
         });
 }
 
+function getInitials(username, nickname) {
+    let name;
+    if (nickname) {
+        name = nickname;
+    }
+    else {
+        name = username;
+    }
+    return name.substring(0,2);
+}
+
 function changeNickname (request, response) {
     let newNickname = request.body.nickname;
     db.get(
@@ -120,4 +131,4 @@ function changePassword(request, response) {
         });
 }
 
-module.exports = {renderPage, changeNickname, changePassword}
+module.exports = {renderPage, changeNickname, changePassword, getInitials}

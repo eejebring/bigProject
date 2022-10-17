@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
-      <change afterPath="$PROJECT_DIR$/views/pages/topic.hbs" afterDir="false" />
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="Laid the groundwork for the design and you can now create topics.">
+      <change afterPath="$PROJECT_DIR$/javascript/topic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbSetup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dbSetup.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/errors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/createTopic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/views.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/create.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/index.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/login.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/thread.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/createTopic.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/user.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/user.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/topic.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/topic.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,21 +37,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.nodejs"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,7 +69,8 @@
       <workItem from="1665242765160" duration="1141000" />
       <workItem from="1665393717217" duration="9000" />
       <workItem from="1665743051211" duration="20093000" />
-      <workItem from="1665845505565" duration="19716000" />
+      <workItem from="1665845505565" duration="19789000" />
+      <workItem from="1666022918520" duration="15026000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -89,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665776654093</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Laid the groundwork for the design and you can now create topics.">
+      <created>1665865339948</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665865339948</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +105,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database." />
+    <MESSAGE value="Laid the groundwork for the design and you can now create topics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Laid the groundwork for the design and you can now create topics." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,17 +2,17 @@
     <h2 class="text-center">Browse & create threads</h2>
     <div class="text-center">
         {{#if role}}
-            <a href="/createTopic" class="text-light bg-primary text-large height-2">
+            <a href="/createTopic" class="text-light bg-primary text-large padding-1">
                 Create new topic
             </a>
         {{else}}
-            <a href="/login" class="text-light bg-primary text-large height-2">
+            <a href="/login" class="text-light bg-primary text-large padding-1">
                 Login
             </a>
         {{/if}}
     </div>
     <div class="text-center">
-        <a href="#threads" class="text-light bg-primary text-large height-2">
+        <a href="#topics" class="text-light bg-primary text-large padding-1">
             Browse <i class="icon icon-arrow-down icon-2x"></i>
         </a>
     </div>
@@ -22,10 +22,10 @@
     {{#if topics.length}}
         <ul>
             {{#each topics}}
-                <li>{{title}}</li>
+                <li class="topic"><a href="/topic:{{topicID}}">{{title}}</a></li>
             {{/each}}
         </ul>
     {{else}}
-        <p>No threads here :(</p>
+        <p>No topics here :(</p>
     {{/if}}
 </section>

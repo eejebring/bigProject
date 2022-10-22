@@ -13,7 +13,7 @@ function renderPage(request, response, args) {
     response.render("pages/createTopic.hbs",model);
 }
 
-function createNew(request, response) {
+function createNew( request, response ) {
     const titleMinLength = 1;
     const titleMaxLength = 64;
     const contextMinLength = 0;
@@ -25,10 +25,10 @@ function createNew(request, response) {
     let formErrors = [];
 
     if (!ownerAccount) {formErrors.push("You must login to create a topic.")}
-    if (topicTitle.length < titleMinLength) {formErrors.push("The title must be at least " + titleMinLength + " long.")}
-    if (titleMaxLength < topicTitle.length) {formErrors.push("The title must be at most " + titleMaxLength + " long")}
-    if (topicContext.length < contextMinLength) {formErrors.push("The title must be at least " + contextMinLength + " long.")}
-    if (contextMaxLength < topicContext.length) {formErrors.push("The title must be at most " + contextMaxLength + " long")}
+    if (topicTitle.length < titleMinLength) {formErrors.push("The title must be at least " + titleMinLength + " character long.")}
+    if (titleMaxLength < topicTitle.length) {formErrors.push("The title must be at most " + titleMaxLength + " character long")}
+    if (topicContext.length < contextMinLength) {formErrors.push("The title must be at least " + contextMinLength + " character long.")}
+    if (contextMaxLength < topicContext.length) {formErrors.push("The title must be at most " + contextMaxLength + " character long")}
 
     if (formErrors.length) {
         const args = {
@@ -53,9 +53,11 @@ function createNew(request, response) {
                             else {
                                 response.redirect("/topic:" + topic.topicID);
                             }
-                        })
+                        }
+                    );
                 }
-            });
+            }
+        );
     }
 }
 

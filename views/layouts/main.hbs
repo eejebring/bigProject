@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/stylesheets/spectre-0.5.9/dist/spectre-exp.min.css" type="text/css"/>
         <link rel="stylesheet" href="/stylesheets/spectre-0.5.9/dist/spectre-icons.min.css" type="text/css"/>
     </head>
-    <body>
+    <body class="bg-dark">
         <nav class="dropdown bg-primary p-fixed">
             <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
                 <i class="icon icon-menu text-light"></i>
@@ -23,7 +23,7 @@
                     <a href="/about">About</a>
                 </li>
                 <li class="menu-item">
-                    <a href="/">Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
 
                 <li class="divider" data-content="User">
@@ -38,10 +38,13 @@
                     <li class="menu-item">
                         <a href="/login">Login</a>
                     </li>
+                    <li class="menu-item">
+                        <a href="/createAccount">Create Account</a>
+                    </li>
                 {{/if}}
             </ul>
         </nav>
-        <div class="container">
+        <div class="container bg-gray text-dark">
             {{{body}}}
         </div>
     </body>

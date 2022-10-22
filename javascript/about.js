@@ -1,9 +1,9 @@
-const errorPage = require("./errors");
 const mainModel = require("./layout");
 
-function renderPage (request, response, args) {
+function renderPage (request, response, args) {;
     model = {
         ...args,
+        ...mainModel(request),
         pageTitle: "About"
     };
     response.render("pages/about.hbs",model);

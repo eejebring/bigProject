@@ -1,13 +1,20 @@
 <h2 class="text-center">Create Account</h2>
-<form action="/createAccount" method="post">
-    <ul>
+<form action="/createAccount" method="post" class="columns">
+    <ul class="col-12">
         {{#each formErrors}}
             <li>{{this}}</li>
         {{/each}}
     </ul>
-    <input name="username" type="text" placeholder="Username"/>
-    <input name="newPassword" type="password" placeholder="Password"/>
-    <input name="reenteredPassword" type="password" placeholder="Reenter Password"/>
-    <input type="submit" content="Create Account"/>
+
+    <label for="username" class="label text-right column col-4">Username:</label>
+    <input name="username" type="text" placeholder="Username" class="column col-8 text-left"/>
+
+    <label for="newPassword" class="label text-right column col-4">password:</label>
+    <input name="newPassword" type="password" placeholder="Password" class="column col-8 text-left"/>
+
+    <label for="reenteredPassword" class="label text-right column col-4">Reenter password:</label>
+    <input name="reenteredPassword" type="password" placeholder="Reenter Password" class="column col-8 text-left"/>
+
+    <input type="submit" content="Create Account" class="col-mx-auto"/>
 </form>
 <a href="/login">Have an account?</a>

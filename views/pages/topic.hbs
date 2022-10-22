@@ -2,13 +2,13 @@
     <div class="tile">
         <div class="tile-icon">
             <figure class="avatar avatar-xl" data-initial="{{initials}}">
-                <img src="img/{{username}}.png" alt="">
+                <img src="../userImages/{{username}}.png" alt="">
             </figure>
         </div>
         <div class="tile-content">
             <p class="tile-title">{{#if nickname}}{{nickname}}{{else}}{{username}}{{/if}}</p>
         </div>
-        {{#if canDelete}}
+        {{#if canDeleteTopic}}
             <form action="/deleteTopic" method="post" class="tile-action">
                 <input type="hidden" name="topicID" value="{{topicID}}">
                 <button class="btn btn-primary">delete</button>
@@ -19,34 +19,41 @@
     <p>{{context}}</p>
 </header>
 <section>
-    <div class="tile">
-        <div class="tile-icon">
-            <figure class="avatar" data-initial="{{initials}}">
-                <img src="img/{{username}}.png" alt="">
-            </figure>
+    {{#each comments}}
+        <div class="tile">
+            <div class="tile-icon">
+                <figure class="avatar" data-initial="{{initials}}">
+                    <img src="../userImages/{{username}}.png" alt="">
+                </figure>
+            </div>
+            <div class="tile-content">
+                <p class="tile-title">{{#if nickname}}{{nickname}}{{else}}{{username}}{{/if}}</p>
+                <p class="tile-subtitle">{{content}}</p>
+            </div>
+            {{#if canDeleteComment}}
+                <form class="tile-action" action="/deleteComment" method="post">
+                    <input type="hidden" name="topicID" value="{{../topicID}}">
+                    <input type="hidden" name="commentID" value="{{commentID}}">
+                    <button class="btn btn-primary">delete</button>
+                </form>
+            {{/if}}
         </div>
-        <div class="tile-content">
-            <p class="tile-title">The Avengers</p>
-            <p class="tile-subtitle">soon to be a comment</p>
-        </div>
-        <form class="tile-action">
-            <input type="hidden" name="topicID" value="{{topicID}}">
-            <button class="btn btn-primary">delete</button>
-        </form>
-    </div>
-
-</section>
-{{#each comments}}
-    <p>{{content}}</p>
-{{/each}}
-<section>
-    <div class="divider bg-primary"></div>
-    {{#each formErrors}}
-        <span class="label label-error">{{this}}</span>
     {{/each}}
-    <form action="/createComment" method="post">
-        <input type="hidden" name="topicID" value="{{topicID}}">
-        <textarea name="commentContent" id="commentContent" placeholder="Add comment..."></textarea>
-        <input type="submit" value="Post Comment">
-    </form>
 </section>
+{{#if role}}
+    <section>
+        <div class="divider bg-primary"></div>
+        {{#each formErrors}}
+            <span class="label label-error">{{this}}</span>
+        {{/each}}
+        <form action="/createComment" method="post" class="columns">
+            <input type="hidden" name="topicID" value="{{topicID}}">
+
+            <span class="label">New Comment</span>
+            <textarea name="commentContent" id="commentContent" placeholder="I would like to comment..." class="column col-12"></textarea>
+            <input type="submit" value="Post Comment" class="col-mx-auto">
+        </form>
+    </section>
+{{else}}
+    <p class="label padding-3"> You must be logged in to comment</p>
+{{/if}}

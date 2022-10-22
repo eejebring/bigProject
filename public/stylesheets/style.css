@@ -1,7 +1,5 @@
 :root {
-    --highlightColor: #7DC748;
-    --detailColor: #D3E0CA;
-    --darkColor: #38472E;
+    --darkColor: #0f0f0f;
 }
 
 .start {
@@ -26,4 +24,18 @@
 
 .dropdown {
     z-index: 1000;
+}
+
+.tile-content {
+    max-width: 80%;
+    word-break: break-word;
+}
+
+.container {
+    max-width: 1200px;
+    min-height: 100vh;
+}
+
+body {
+    background-color: var(--darkColor);
 }

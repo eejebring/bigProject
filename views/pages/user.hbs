@@ -17,13 +17,15 @@
     <span class="column col-8 text-left">{{nickname}}</span>
 
 </section>
+
+<div class="divider bg-dark"></div>
 <section>
     <form action="changeNickname" method="post" class="columns">
         <h3 class="column col-12">Change nickname</h3>
         {{#if nicknameFormErrors}}
             <ul class="column col-12">
                 {{#each nicknameFormErrors}}
-                    <li> <span class="label label-error">{{this}}</span></li>
+                    <li><span class="label label-error">{{this}}</span></li>
                 {{/each}}
             </ul>
         {{/if}}
@@ -32,8 +34,27 @@
         <input type="submit" class="col-mx-auto" value="Change nickname"/>
     </form>
 </section>
-<div class="divider"></div>
-<section class="columns">
+
+<div class="divider bg-dark"></div>
+<section>
+    <form action="/uploadImage" method="post" encType="multipart/form-data" class="columns">
+        <h3 class="col-12">Change profile picture</h3>
+        <ul class="column col-12">
+            {{#each imageFormErrors}}
+                <li><span class="label label-error">{{this}}</span></li>
+            {{/each}}
+        </ul>
+        <figure class="avatar avatar-xl col-12" data-initial="{{initials}}">
+            <img src="userImages/{{username}}.png" alt="">
+        </figure>
+        <input type="file" class="col-12" name="image">
+        <span class="label">Max 50Mb</span>
+        <input type="submit" value="Upload picture" class="col-mx-auto">
+    </form>
+</section>
+
+<div class="divider bg-dark"></div>
+<section>
     <form action="changePassword" method="post" class="columns">
         <h3 class="column col-12">Change password</h3>
         <ul class="column col-12">
@@ -41,14 +62,14 @@
                 <li><span class="label label-error">{{this}}</span></li>
             {{/each}}
         </ul>
-        <label for="currentPassword" class="label text-right column col-4">Current password:</label>
-        <input name="currentPassword" id="currentPassword" class="column col-8 text-left" type="password"/>
+        <label for="currentPassword" class="label text-right col-4">Current password:</label>
+        <input name="currentPassword" id="currentPassword" class="col-8 text-left" type="password"/>
 
-        <label for="newPassword" class="label text-right column col-4">New password:</label>
-        <input name="newPassword" id="newPassword" class="column col-8 text-left" type="password"/>
+        <label for="newPassword" class="label text-right col-4">New password:</label>
+        <input name="newPassword" id="newPassword" class="col-8 text-left" type="password"/>
 
-        <label for="reenteredPassword" class="label text-right column col-4">Repeat password:</label>
-        <input name="reenteredPassword" id="reenteredPassword" class="column col-8 text-left" type="password"/>
+        <label for="reenteredPassword" class="label text-right col-4">Repeat password:</label>
+        <input name="reenteredPassword" id="reenteredPassword" class="col-8 text-left" type="password"/>
 
         <input type="submit" class="col-mx-auto" value="Change password">
     </form>

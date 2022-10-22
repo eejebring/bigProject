@@ -1,5 +1,5 @@
-<section class="start bg-gray">
-    <h2 class="text-center">Browse & create threads</h2>
+<header class="start">
+    <h2 class="text-center">Browse & create topics</h2>
     <div class="text-center">
         {{#if role}}
             <a href="/createTopic" class="text-light bg-primary text-large padding-1">
@@ -16,16 +16,33 @@
             Browse <i class="icon icon-arrow-down icon-2x"></i>
         </a>
     </div>
-</section>
+</header>
 <section id="topics">
     <h3>Topics</h3>
     {{#if topics.length}}
         <ul>
             {{#each topics}}
-                <li class="topic"><a href="/topic:{{topicID}}">{{title}}</a></li>
+                <li class="tile tile-centered">
+                    <div class="tile-icon">
+                        <figure class="avatar" data-initial="{{initials}}">
+                            <img src="../userImages/{{username}}.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title"><a href="/topic/{{topicID}}">{{title}}</a></div>
+                        <small class="tile-subtitle text-gray">{{age}}</small>
+                    </div>
+                </li>
             {{/each}}
         </ul>
     {{else}}
         <p>No topics here :(</p>
     {{/if}}
 </section>
+<ul class="pagination">
+    {{#each pagination}}
+        <li class="page-item{{#if active}} active{{/if}}{{#if disabled}} disabled{{/if}}">
+            <a href="/index/{{pageNr}}">{{name}}</a>
+        </li>
+    {{/each}}
+</ul>

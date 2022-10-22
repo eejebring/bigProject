@@ -5,15 +5,12 @@ const errorPage = require("./errors");
 const mainModel = require("./layout");
 const user = require("./user");
 
-const COMMENT_MAX_LENGTH = 255;
-const COMMENT_MIN_LENGTH = 1;
-
 function renderPage(request, response, args, topicID) {
     if (!topicID) {
-        topicID = request.params.ID.substring(1);
+        topicID = parseInt(request.params.ID);
     }
     db.get(
-        "select topicID, accountID, title, context, age, username, nickname, hasImage from topic join account a on a.accountID = topic.ownerID where topicID = ?",
+        "select topicID, accountID, title, context, age, username, nickname from topic join account a on a.accountID = topic.ownerID where topicID = ?",
         [topicID],
         (err, topicData) => {
             if (err) {
@@ -24,19 +21,28 @@ function renderPage(request, response, args, topicID) {
             }
             else {
                 db.all(
-                    "select * from comment where topicID = ?",
+                    "select content, username, nickname, ownerID, commentID from comment join account on ownerID = accountID where topicID = ?",
                     [topicID],
                     (err, comments) => {
-                        const model = {
-                            ...args,
-                            ...mainModel(request),
-                            ...topicData,
-                            initials:user.getInitials(topicData.username,topicData.nickname),
-                            canDelete:topicData.accountID == request.session.accountID,
-                            comments:comments
+                        if (err) {
+                            errorPage.internalServer(response);
                         }
-                        console.log(model);
-                        response.render("pages/topic.hbs", model)
+                        else {
+                            for (let i = 0; i < comments.length; i++) {
+                                console.log(comments[i]);
+                                comments[i].initials = user.getInitials(comments[i].username, comments[i].nickname);
+                                comments[i].canDeleteComment = request.session.roleID == 2 || request.session.accountID == comments[i].ownerID;
+                            }
+                            const model = {
+                                ...args,
+                                ...mainModel(request),
+                                ...topicData,
+                                initials:user.getInitials(topicData.username,topicData.nickname),
+                                canDeleteTopic:topicData.accountID == request.session.accountID,
+                                comments:comments
+                            }
+                            response.render("pages/topic.hbs", model);
+                        }
                     }
                 )
             }
@@ -48,7 +54,6 @@ function deleteTopic(request, response) {
     const topicID = request.body.topicID;
     const requesterID = request.session.accountID;
 
-    console.log({topicID, requesterID})
     db.run(
         "delete from topic where topicID = ? and ownerID = ?",
         [topicID, requesterID],
@@ -64,6 +69,9 @@ function deleteTopic(request, response) {
 }
 
 function addComment(request, response) {
+    const COMMENT_MAX_LENGTH = 255;
+    const COMMENT_MIN_LENGTH = 1;
+
     const topicID = request.body.topicID;
     const userID = request.session.accountID;
     const content = request.body.commentContent;
@@ -97,18 +105,17 @@ function addComment(request, response) {
 function deleteComment(request, response) {
     const topicID = request.body.topicID;
     const requesterID = request.session.accountID;
-    const commentID = "";
+    const commentID = request.body.commentID;
 
-    console.log({topicID, requesterID})
     db.run(
         "delete from comment where commentID = ? and ownerID = ?",
-        [topicID, requesterID],
+        [commentID, requesterID],
         (err) => {
             if (err) {
                 errorPage.internalServer(response);
             }
             else {
-                response.redirect("/topic:ID");
+                response.redirect("/topic:" + topicID);
             }
         }
     );

@@ -4,9 +4,11 @@ create table if not exists roles
     title varchar(32) not null
 );
 
+/*
 insert into roles (title) VALUES
 ('User'),
 ('Admin');
+ */
 
 create table if not exists account
 (
@@ -15,20 +17,14 @@ create table if not exists account
     username varchar(20) not null,
     nickname varchar(25),
     password char(60) not null,
-    hasImage boolean default false not null,
     foreign key (roleID) references roles(roleID)
 );
 
 /*create user admin with the password: password*/
-
+/*
 insert into account (roleID, username, password) values
 (2,'admin','$2a$12$2.zx8ECdvZHJKcE0pZuYVOQW2jEjoBQYDlNzCfQng7QCohMIPFzu6');
-
-select username from account;
-
-select * from topic;
-
-select* from topic where topicID = 4 and ownerID = 3;
+ */
 
 create table if not exists topic
 (
@@ -50,24 +46,3 @@ create table if not exists comment
     foreign key (ownerID) references account(accountID),
     foreign key (topicID) references topic(topicID)
 );
-
-insert into comment (ownerID, topicID, content) VALUES (?,?,?);
-select * from comment;
-select accountID, username, password from account;
-
-delete from comment where content = '';
-
-select username,title from account
-join roles r on account.roleID = r.roleID;
-
-drop table account;
-
-select username, nickname, hasImage, title  from account as A
-join roles as J on A.roleID = J.roleID
-where accountID = 1;
-
-update account
-set nickname = 'srfhaapfijmnnp'
-where accountID = 1;
-
-select title, context, age, username, nickname, hasImage from topic join account a on a.accountID = topic.ownerID where topicID = 1;

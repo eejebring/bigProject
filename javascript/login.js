@@ -34,7 +34,7 @@ function loginRequest(request, response, username = request.body.username, login
                     } else if (result) {
                         request.session.accountID = accountDetails.accountID;
                         request.session.roleID = accountDetails.roleID;
-                        user.renderPage(request, response);
+                        response.redirect("/account");
                     } else {
                         const args = {
                             loginFailure: true,
@@ -49,7 +49,7 @@ function loginRequest(request, response, username = request.body.username, login
 
 function logout(request, response) {
     request.session.destroy();
-    index.renderPage(request, response);
+    response.redirect("/");
 }
 
 module.exports = {loginRequest, renderPage, logout}

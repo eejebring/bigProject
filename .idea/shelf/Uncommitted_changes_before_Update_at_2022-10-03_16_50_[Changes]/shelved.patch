@@ -1,0 +1,18 @@
+Index: main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const express = require('express');\nconst expressHandlebars = require('express-handlebars');\nconst expressFileUpload = require('express-fileupload');\nconst sqlite3 = require('sqlite3');\nconst db = new sqlite3.Database('./database.db');\nconst bcrypt = require('bcryptjs');\nconst app = express();\n\napp.engine(\"hbs\", expressHandlebars.engine({\n    defaultLayout: \"index.hbs\"\n}));\n\napp.use(\n    express.static(\"public\"),\n    express.urlencoded({extended:false})\n    );\n\napp.get(\"/\", function(request, response){\n    db.all(\"select * from humans\", function (error, humans) {\n        if (error) {\n            console.log(error.message);\n        }\n        else {\n            const model = {\n                humans:humans,\n                pageTitle: \"Home\"\n            };\n            response.render(\"pages/showAllHumans.hbs\", model);\n        };\n    });\n});\n\napp.get(\"/about\", function(request, response) {\n    const model = {pageTitle: \"About\"};\n    response.render(\"pages/about.hbs\",model);\n});\n\napp.get(\"/login\", function (request, response) {\n    const model = {pageTitle: \"Login\"};\n   response.render(\"pages/login.hbs\", model)\n});\n\napp.get(\"/createAccount\", function (request, response) {\n    response.render(\"pages/createAccount.hbs\")\n});\n\napp.post(\"/createAccount\", function (request, response){\n    console.log(request.body.username);\n    response.redirect(\"/\");\n});\n\n/*db.run(\"create table webpages (\" +\n    \"pageID int identity primary key,\" +\n    \"name varchar(255),\" +\n    \"title varchar(255),\" +\n    \"layout int not null)\",\n    function (error) {\n    if (error) {\n        console.log(error.message);\n    }\n});*/\n\napp.listen(8080);\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.js b/main.js
+--- a/main.js	(revision 8062e76eda8f1905dc522a4a49b3a9dc3d23a7ad)
++++ b/main.js	(date 1664808637150)
+@@ -46,6 +46,7 @@
+ 
+ app.post("/createAccount", function (request, response){
+     console.log(request.body.username);
++
+     response.redirect("/");
+ });
+ 

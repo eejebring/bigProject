@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="changed port to 80">
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="changed port to 8080">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
@@ -67,7 +67,7 @@
       <workItem from="1666263607460" duration="25000" />
       <workItem from="1666437402135" duration="2185000" />
       <workItem from="1666446903605" duration="603000" />
-      <workItem from="1666544288516" duration="2400000" />
+      <workItem from="1666544288516" duration="2847000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -118,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666562085933</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed port to 8080">
+      <created>1666562533726</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666562533726</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +150,8 @@
     <MESSAGE value="changed name on the javascript folder to JavaScript." />
     <MESSAGE value="small stuff" />
     <MESSAGE value="changed port to 80" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed port to 80" />
+    <MESSAGE value="changed port to 8080" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed port to 8080" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

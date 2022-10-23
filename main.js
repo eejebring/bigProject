@@ -78,4 +78,4 @@ app.post("/createComment", (request, response) => topic.read.addComment(request,
 app.post("/deleteComment", (request, response) => topic.read.deleteComment(request, response));
 app.post("/uploadImage", (request, response) => account.user.uploadImage(request, response));
 
-app.listen(80);
+app.listen(8080);

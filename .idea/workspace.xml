@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="changed name on the javascript folder to JavaScript.">
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="small stuff">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
@@ -69,7 +69,7 @@
       <workItem from="1666263607460" duration="25000" />
       <workItem from="1666437402135" duration="2185000" />
       <workItem from="1666446903605" duration="603000" />
-      <workItem from="1666544288516" duration="1882000" />
+      <workItem from="1666544288516" duration="1909000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -106,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666544333861</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="small stuff">
+      <created>1666561594515</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666561594515</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,7 +136,8 @@
     <MESSAGE value="Started Implemented the topics page and is mostly done. You can now view comments and add comments." />
     <MESSAGE value="Image upload is complete, css is complete. The page is done for now." />
     <MESSAGE value="changed name on the javascript folder to JavaScript." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed name on the javascript folder to JavaScript." />
+    <MESSAGE value="small stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="small stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

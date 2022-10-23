@@ -10,17 +10,17 @@ const db = new sqlite3.Database("./database.db");
 const fs = require("fs");
 const {use} = require("express/lib/router");
 
-const index = require("./javascript/index");
-const about = require("./javascript/about");
-const contact = require("./javascript/contact");
+const index = require("./JavaScript/index");
+const about = require("./JavaScript/about");
+const contact = require("./JavaScript/contact");
 const account = {
-    user:require("./javascript/user"),
-    login:require("./javascript/login"),
-    create:require("./javascript/createAccount")
+    user:require("./JavaScript/user"),
+    login:require("./JavaScript/login"),
+    create:require("./JavaScript/createAccount")
 }
 const topic = {
-    create:require("./javascript/createTopic"),
-    read:require("./javascript/topic")
+    create:require("./JavaScript/createTopic"),
+    read:require("./JavaScript/topic")
 }
 
 fs.readFile("./dbSetup.sql", "utf8", (err, dbSetup) => {

@@ -8,11 +8,11 @@ const app = express();
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("./database.db");
 const fs = require("fs");
+const {use} = require("express/lib/router");
 
 const index = require("./javascript/index");
 const about = require("./javascript/about");
 const contact = require("./javascript/contact");
-const {use} = require("express/lib/router");
 const account = {
     user:require("./javascript/user"),
     login:require("./javascript/login"),

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="Image upload is complete, css is complete. The page is done for now.">
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="changed name on the javascript folder to JavaScript.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +69,7 @@
       <workItem from="1666263607460" duration="25000" />
       <workItem from="1666437402135" duration="2185000" />
       <workItem from="1666446903605" duration="603000" />
+      <workItem from="1666544288516" duration="1882000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -95,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666439543477</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="changed name on the javascript folder to JavaScript.">
+      <created>1666544333861</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666544333861</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +128,8 @@
     <MESSAGE value="Laid the groundwork for the design and you can now create topics." />
     <MESSAGE value="Started Implemented the topics page and is mostly done. You can now view comments and add comments." />
     <MESSAGE value="Image upload is complete, css is complete. The page is done for now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Image upload is complete, css is complete. The page is done for now." />
+    <MESSAGE value="changed name on the javascript folder to JavaScript." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed name on the javascript folder to JavaScript." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 
 const errorPage = require("./errors");
 const mainModel = require("./layout");
+const {response} = require("express");
 
 function renderPage(request, response, args = {}) {
     db.get(
@@ -107,7 +108,7 @@ function changePassword(request, response) {
                             if (passwordFormErrors.length) {
                                 const args = {
                                     passwordFormErrors:passwordFormErrors
-                                };
+                                }
                                 renderPage(request, response, args)
                             }
                             else {
@@ -129,7 +130,7 @@ function changePassword(request, response) {
                         } else {
                             const args = {
                                 passwordFormErrors:["Current password did not match."]
-                            };
+                            }
                             renderPage(request, response, args)
                         }
                     }
@@ -175,4 +176,8 @@ function uploadImage (request, response) {
     }
 }
 
-module.exports = {renderPage, changeNickname, changePassword, getInitials, uploadImage}
+function deleteAccount(request, response) {
+    errorPage.internalServer(response)
+}
+
+module.exports = {renderPage, changeNickname, changePassword, getInitials, uploadImage, deleteAccount}

@@ -3,7 +3,6 @@ const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("./database.db");
 
 const errorPage = require("./errors");
-const mainModel = require("./layout");
 const login = require("./login")
 
 function renderPage(request, response, formErrors) {
@@ -21,7 +20,7 @@ function createNew (request, response) {
     const PASSWORD_MAX_LENGTH = 60;
     const PASSWORD_SALT_ROUNDS = 12;
 
-    const username = request.body.username;
+    const username = request.body.newUsername;
     const password = request.body.newPassword;
 
     db.get("select username from account where username = ?",
@@ -41,11 +40,11 @@ function createNew (request, response) {
 
 
                 if (formErrors.length == 0) {
-                    const encryptedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
+                    const hashedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
 
                     db.run(
                         "insert into account (username, password) values (?,?);",
-                        [username,encryptedPassword],
+                        [username,hashedPassword],
                         (err) => {
                             if (err) {
                                 errorPage.internalServer(response);

@@ -4,8 +4,6 @@ const db = new sqlite3.Database("./database.db");
 
 const errorPage = require("./errors");
 const mainModel = require("./layout");
-const user = require("./user");
-const index = require("./index");
 
 function renderPage(request, response, args) {
     let model = {

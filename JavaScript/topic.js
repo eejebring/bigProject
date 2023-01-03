@@ -5,6 +5,8 @@ const errorPage = require("./errors");
 const mainModel = require("./layout");
 const user = require("./user");
 
+const adminRoleID = 2;
+
 function renderPage(request, response, args, topicID) {
     if (!topicID) {
         topicID = parseInt(request.params.ID);
@@ -31,7 +33,7 @@ function renderPage(request, response, args, topicID) {
                             for (let i = 0; i < comments.length; i++) {
                                 console.log(comments[i]);
                                 comments[i].initials = user.getInitials(comments[i].username, comments[i].nickname);
-                                comments[i].canDeleteComment = request.session.roleID == 2 || request.session.accountID == comments[i].ownerID;
+                                comments[i].canDeleteComment = request.session.roleID == adminRoleID || request.session.accountID == comments[i].ownerID;
                             }
                             const model = {
                                 ...args,
@@ -60,6 +62,7 @@ function deleteTopic(request, response) {
         (err) => {
             if (err) {
                 errorPage.internalServer(response);
+
             }
             else {
                 response.redirect("/");

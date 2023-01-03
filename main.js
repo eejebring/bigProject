@@ -1,6 +1,6 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
-const expressSession = require("express-session")
+const expressSession = require("express-session");
 const connectSqlite3 = require("connect-sqlite3");
 const SQLiteStore = connectSqlite3(expressSession);
 const expressFileUpload = require("express-fileupload");
@@ -8,7 +8,6 @@ const app = express();
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("./database.db");
 const fs = require("fs");
-const {use} = require("express/lib/router");
 
 const index = require("./JavaScript/index");
 const about = require("./JavaScript/about");
@@ -72,6 +71,7 @@ app.post("/login", (request, response) => account.login.loginRequest(request, re
 app.post("/createAccount", (request, response) => account.create.createNew(request, response));
 app.post("/changeNickname", (request, response) => account.user.changeNickname(request, response));
 app.post("/changePassword", (request, response) => account.user.changePassword(request, response));
+app.post("/deleteAccount", (request, response) => account.user.deleteAccount(request, response));
 app.post("/createTopic", (request, response) => topic.create.createNew(request, response));
 app.post("/deleteTopic", (request, response) => topic.read.deleteTopic(request, response));
 app.post("/createComment", (request, response) => topic.read.addComment(request, response));

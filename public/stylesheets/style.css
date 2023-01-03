@@ -39,3 +39,8 @@
 body {
     background-color: var(--darkColor);
 }
+
+.divider {
+    height: .1rem !important;
+    margin: 1rem !important;
+}

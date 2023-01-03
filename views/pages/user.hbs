@@ -49,6 +49,7 @@
         </figure>
         <input type="file" class="col-12" name="image">
         <span class="label">Max 50Mb</span>
+        <div class="col-12"></div>
         <input type="submit" value="Upload picture" class="col-mx-auto">
     </form>
 </section>
@@ -73,4 +74,23 @@
 
         <input type="submit" class="col-mx-auto" value="Change password">
     </form>
+</section>
+
+<div class="divider bg-dark"></div>
+<section class="columns">
+    <div class="popover popover-top col-mx-auto">
+        <button class="col-mx-auto btn btn-error">Delete account</button>
+        <div class="popover-container">
+            <div class="card bg-warning">
+                <div class="card-header">
+                    <form action="deleteAccount" method="post" class="columns">
+                        <input type="submit" class="col-mx-auto btn btn-error" value="I am certain!">
+                    </form>
+                </div>
+                <div class="card-body">
+                    <p>Are you sure you want to delete your account?</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

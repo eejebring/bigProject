@@ -1,7 +1,7 @@
 const mainModel = require("./layout");
 
 function renderPage (request, response, args) {;
-    model = {
+    const model = {
         ...args,
         ...mainModel(request),
         pageTitle: "About"

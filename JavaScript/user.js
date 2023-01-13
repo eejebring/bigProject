@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const errorPage = require("./errors");
 const mainModel = require("./layout");
 const {response} = require("express");
+const {logout} = require("./login");
 
 function renderPage(request, response, args = {}) {
     db.get(
@@ -172,12 +173,22 @@ function uploadImage (request, response) {
         );
     }
     else {
-        renderPage(request, response, {imageFormErrors})
+        renderPage(request, response, {imageFormErrors});
     }
 }
 
 function deleteAccount(request, response) {
-    errorPage.internalServer(response)
+    db.run("delete from account where accountID = ?",
+        [request.session.accountID],
+        (err) => {
+            if (err) {
+                errorPage.internalServer(response);
+            }
+            else {
+                logout(request, response);
+            }
+        }
+    )
 }
 
 module.exports = {renderPage, changeNickname, changePassword, getInitials, uploadImage, deleteAccount}

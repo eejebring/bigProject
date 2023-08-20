@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="error now return pages.">
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="can now delete accounts">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77c98626-b5e9-47d4-bfc8-8934b04dcce9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/createTopic.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/createTopic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/topic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaScript/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +28,9 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -30,27 +40,43 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
   <component name="ProjectId" id="2FTqICRBIOPqaM9WR96rezQ0lOB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/eejebring/Intellij/webDev/bigProject&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/eejebring/Intellij/webDev/bigProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -82,7 +108,22 @@
       <workItem from="1672756685863" duration="7395000" />
       <workItem from="1672929134431" duration="211000" />
       <workItem from="1673621189841" duration="330000" />
-      <workItem from="1673621568784" duration="1638000" />
+      <workItem from="1673621568784" duration="5872000" />
+      <workItem from="1673953172269" duration="42000" />
+      <workItem from="1676628322852" duration="415000" />
+      <workItem from="1676630850658" duration="3617000" />
+      <workItem from="1676837626861" duration="8000" />
+      <workItem from="1677586997382" duration="29000" />
+      <workItem from="1678453413477" duration="76000" />
+      <workItem from="1687078824895" duration="36000" />
+      <workItem from="1687078870623" duration="239000" />
+      <workItem from="1687079302052" duration="1081000" />
+      <workItem from="1687080465204" duration="134000" />
+      <workItem from="1687080644217" duration="71000" />
+      <workItem from="1687080728045" duration="24000" />
+      <workItem from="1692535578718" duration="334000" />
+      <workItem from="1692536058105" duration="49000" />
+      <workItem from="1692536302200" duration="1000000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -161,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672777809772</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="can now delete accounts">
+      <created>1673626768766</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673626768766</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +237,8 @@
     <MESSAGE value="changed port to 8080" />
     <MESSAGE value="fixed folder error" />
     <MESSAGE value="error now return pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="error now return pages." />
+    <MESSAGE value="can now delete accounts" />
+    <option name="LAST_COMMIT_MESSAGE" value="can now delete accounts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

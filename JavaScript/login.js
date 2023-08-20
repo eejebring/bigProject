@@ -1,9 +1,9 @@
-const bcrypt = require("bcryptjs");
-const sqlite3 = require("sqlite3");
-const db = new sqlite3.Database("./database.db");
+const bcrypt = require("bcryptjs")
+const sqlite3 = require("sqlite3")
+const db = new sqlite3.Database("./database.db")
 
-const errorPage = require("./errors");
-const mainModel = require("./layout");
+const errorPage = require("./errors")
+const mainModel = require("./layout")
 
 function renderPage(request, response, args) {
     let model = {
@@ -11,43 +11,44 @@ function renderPage(request, response, args) {
         ...mainModel(request),
         pageTitle: "Login"
     }
-    response.render("pages/login.hbs",model);
+    response.render("pages/login.hbs", model)
 }
+
 function loginRequest(request, response, username = request.body.username, loginPassword = request.body.password) {
     db.get("select accountID, password, roleID from account where username = ?",
         [username],
         (err, accountDetails) => {
             if (err) {
-                errorPage.internalServer(response);
+                errorPage.internalServer(response)
             } else if (accountDetails == undefined) {
                 const args = {
                     loginFailure: true,
                     attemptedUsername: username
-                };
-                response.render("pages/login.hbs", args);
+                }
+                response.render("pages/login.hbs", args)
             } else {
                 bcrypt.compare(loginPassword, accountDetails.password, (err, result) => {
                     if (err) {
-                        errorPage.internalServer(response);
+                        errorPage.internalServer(response)
                     } else if (result) {
-                        request.session.accountID = accountDetails.accountID;
-                        request.session.roleID = accountDetails.roleID;
-                        response.redirect("/account");
+                        request.session.accountID = accountDetails.accountID
+                        request.session.roleID = accountDetails.roleID
+                        response.redirect("/account")
                     } else {
                         const args = {
                             loginFailure: true,
                             attemptedUsername: username
-                        };
-                        renderPage(request, response, args);
+                        }
+                        renderPage(request, response, args)
                     }
-                });
+                })
             }
         })
 }
 
 function logout(request, response) {
-    request.session.destroy();
-    response.redirect("/");
+    request.session.destroy()
+    response.redirect("/")
 }
 
 module.exports = {loginRequest, renderPage, logout}

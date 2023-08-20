@@ -1,13 +1,11 @@
-
-function mainModel (request) {
+function mainModel(request) {
     if (!request.session) {
         return {}
-    }
-    else {
+    } else {
         return {
             role: request.session.roleID
         }
     }
 }
 
-module.exports = mainModel;
+module.exports = mainModel

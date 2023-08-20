@@ -1,7 +1,7 @@
 const errorPage = require("../lib/errors")
 const db = require("../lib/db")
 
-const {renderPage} = require("../get/topicPage")
+const {topicPage} = require("../get/topicPage")
 
 function createComment(request, response) {
     const COMMENT_MAX_LENGTH = 255
@@ -33,7 +33,7 @@ function createComment(request, response) {
             }
         )
     } else {
-        renderPage(request, response, {formErrors}, topicID)
+        topicPage(request, response, {formErrors}, topicID)
     }
 }
 

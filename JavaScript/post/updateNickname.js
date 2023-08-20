@@ -1,5 +1,5 @@
 const errorPage = require("../lib/errors")
-const {renderPage} = require("../get/accountPage")
+const {accountPage} = require("../get/accountPage")
 const db = require("../lib/db")
 
 function updateNickname(request, response) {
@@ -27,7 +27,7 @@ function updateNickname(request, response) {
                 }
 
                 if (nicknameFormErrors.length) {
-                    renderPage(request, response, {nicknameFormErrors: nicknameFormErrors})
+                    accountPage(request, response, {nicknameFormErrors: nicknameFormErrors})
                 } else {
                     db.run(
                         "update account\n" +
@@ -41,7 +41,7 @@ function updateNickname(request, response) {
                                 let args = {
                                     success: "Successfully changed nickname!"
                                 }
-                                renderPage(request, response, args)
+                                accountPage(request, response, args)
                             }
                         }
                     )

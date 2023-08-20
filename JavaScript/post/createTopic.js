@@ -1,5 +1,5 @@
 const errorPage = require("../lib/errors")
-const {renderPage} = require("../get/createTopicPage")
+const {createTopicPage} = require("../get/createTopicPage")
 const db = require("../lib/db")
 
 function createTopic(request, response) {
@@ -33,7 +33,7 @@ function createTopic(request, response) {
         const args = {
             formErrors: formErrors
         }
-        renderPage(request, response, args)
+        createTopicPage(request, response, args)
     } else {
         db.run("insert into topic (ownerID, title, context) values (?,?,?)",
             [ownerAccount, topicTitle, topicContext],
@@ -47,7 +47,7 @@ function createTopic(request, response) {
                             if (err || !topic) {
                                 errorPage.internalServer(response)
                             } else {
-                                response.redirect("/topic:" + topic.topicID)
+                                response.redirect("/topic/" + topic.topicID)
                             }
                         }
                     )

@@ -1,8 +1,8 @@
 const {renderPage} = require("../get/createTopicPage")
 const db = require("../lib/db")
 
-function editTopic() {
+function updateTopic() {
 
 }
 
-module.exports = {editTopic}
+module.exports = {updateTopic}

@@ -5,6 +5,9 @@ const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
 const user = require("./accountPage")
 const {DELETED_USER_TITLE} = require("./indexPage")
+const {getInitials} = require("../lib/getInitials")
+const {isOwner} = require("../lib/checkIfOwner")
+const {isAdminOrOwner} = require("../lib/checkIfOwnerOrAdmin")
 
 function topicPage(request, response, args, topicID) {
     if (!topicID) {
@@ -19,7 +22,7 @@ function topicPage(request, response, args, topicID) {
             } else if (topicData == null) {
                 errorPage.badRequest(response)
             } else {
-                let initials = user.getInitials(topicData.username, topicData.nickname)
+                let initials = getInitials(topicData.username, topicData.nickname)
                 if (!topicData.username) {
                     topicData.username = DELETED_USER_TITLE
                 }
@@ -31,7 +34,7 @@ function topicPage(request, response, args, topicID) {
                             errorPage.internalServer(response)
                         } else {
                             for (let i = 0; i < comments.length; i++) {
-                                comments[i].initials = user.getInitials(comments[i].username, comments[i].nickname)
+                                comments[i].initials = getInitials(comments[i].username, comments[i].nickname)
                                 if (comments[i].username) {
                                     comments[i].canDeleteComment = isAdminOrOwner(request, comments[i].ownerID)
                                 } else {

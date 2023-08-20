@@ -22,7 +22,6 @@ function uploadImage(request, response) {
                 } else {
                     let fileName = account.username + ".png"
                     request.files.image.name = fileName
-                    console.log(request.files.image)
                     request.files.image.mv("public/userImages/" + fileName, (err) => {
                             if (err) {
                                 console.log(err)

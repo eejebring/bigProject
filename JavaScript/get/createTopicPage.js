@@ -4,7 +4,7 @@ const db = new sqlite3.Database("./database.db")
 const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
 
-function createTopic(request, response, args) {
+function createTopicPage(request, response, args) {
     const model = {
         ...args,
         ...mainModel(request),
@@ -14,4 +14,4 @@ function createTopic(request, response, args) {
 }
 
 
-module.exports = {createTopic}
+module.exports = {createTopicPage}

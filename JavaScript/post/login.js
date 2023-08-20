@@ -1,7 +1,7 @@
 const errorPage = require("../lib/errors")
 const bcrypt = require("bcryptjs")
 const db = require("../lib/db")
-const {renderPage} = require("../get/loginPage")
+const {loginPage} = require("../get/loginPage")
 
 function login(request, response, username = request.body.username, loginPassword = request.body.password) {
     db.get("select accountID, password, roleID from account where username = ?",
@@ -28,7 +28,7 @@ function login(request, response, username = request.body.username, loginPasswor
                             loginFailure: true,
                             attemptedUsername: username
                         }
-                        renderPage(request, response, args)
+                        loginPage(request, response, args)
                     }
                 })
             }

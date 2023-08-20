@@ -1,7 +1,7 @@
 const db = require("../lib/db")
 
-function editComment() {
+function updateComment() {
 
 }
 
-module.exports = {editComment}
+module.exports = {updateComment}

@@ -4,9 +4,9 @@ const db = require("../lib/db")
 
 const errorPage = require("../lib/errors")
 const {login} = require("./login")
-const {renderPage} = require("../get/accountCreationPage")
+const {accountCreationPage} = require("../get/accountCreationPage")
 
-function createNew(request, response) {
+function createAccount(request, response) {
     const USERNAME_MIN_LENGTH = 5
     const USERNAME_MAX_LENGTH = 20
     const PASSWORD_MIN_LENGTH = 8
@@ -59,10 +59,10 @@ function createNew(request, response) {
                         })
 
                 } else {
-                    renderPage(request, response, {formErrors})
+                    accountCreationPage(request, response, {formErrors})
                 }
             }
         })
 }
 
-module.exports = {createNew}
+module.exports = {createAccount}

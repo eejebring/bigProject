@@ -4,6 +4,7 @@ const db = new sqlite3.Database("./database.db")
 const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
 const user = require("./accountPage")
+const {getInitials} = require("../lib/getInitials")
 
 const DELETED_USER_TITLE = "[Deleted account]"
 
@@ -25,7 +26,7 @@ function indexPage(request, response) {
                             errorPage.internalServer(response)
                         } else {
                             for (let i = 0; i < topics.length; i++) {
-                                topics[i].initials = user.getInitials(topics[i].username, topics[i].nickname)
+                                topics[i].initials = getInitials(topics[i].username, topics[i].nickname)
                                 if (topics[i].username == null) {
                                     topics[i].username = DELETED_USER_TITLE
                                 }

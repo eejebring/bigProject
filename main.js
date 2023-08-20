@@ -58,7 +58,7 @@ app.get("/topic/:ID", (request, response) => getPage.topicPage(request, response
 
 app.post("/login", (request, response) => postRequest.login(request, response))
 app.post("/createAccount", (request, response) => postRequest.createAccount(request, response))
-app.post("/changeNickname", (request, response) => postRequest.updateNickname(request, response))
+app.post("/updateNickname", (request, response) => postRequest.updateNickname(request, response))
 app.post("/changePassword", (request, response) => postRequest.updatePassword(request, response))
 app.post("/deleteAccount", (request, response) => postRequest.deleteAccount(request, response))
 app.post("/createTopic", (request, response) => postRequest.createTopic(request, response))

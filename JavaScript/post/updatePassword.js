@@ -1,6 +1,6 @@
 const errorPage = require("../lib/errors")
 const bcrypt = require("bcryptjs")
-const {renderPage} = require("../get/accountPage")
+const {accountPage} = require("../get/accountPage")
 const db = require("../lib/db")
 
 
@@ -36,7 +36,7 @@ function updatePassword(request, response) {
                                 const args = {
                                     passwordFormErrors: passwordFormErrors
                                 }
-                                renderPage(request, response, args)
+                                accountPage(request, response, args)
                             } else {
                                 const encryptedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS)
                                 db.run("update account set password = ? where accountID = ?",
@@ -48,7 +48,7 @@ function updatePassword(request, response) {
                                             let args = {
                                                 success: "Successfully changed password!"
                                             }
-                                            renderPage(request, response, args)
+                                            accountPage(request, response, args)
                                         }
                                     })
                             }
@@ -56,7 +56,7 @@ function updatePassword(request, response) {
                             const args = {
                                 passwordFormErrors: ["Current password did not match."]
                             }
-                            renderPage(request, response, args)
+                            accountPage(request, response, args)
                         }
                     }
                 )

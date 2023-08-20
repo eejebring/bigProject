@@ -1,0 +1,23 @@
+<header>
+    <h2 class="text-center">Update Comment</h2>
+</header>
+<section>
+    <form action="/updateComment" method="post" class="columns">
+        <h3 class="column col-12">Update Comment</h3>
+        {{#if formErrors}}
+            <ul class="column col-12">
+                {{#each formErrors}}
+                    <li><span class="label label-error">{{this}}</span></li>
+                {{/each}}
+            </ul>
+        {{/if}}
+
+        <label for="content" class="label text-right col-4">Context:</label>
+        <span class="column col-8 text-left">Max 512 symbols</span>
+        <textarea name="content" id="content" class="column col-12"
+                  placeholder="The comment">{{content}}</textarea>
+
+        <input type="hidden" name="commentID" id="commentID" value="{{commentID}}">
+        <input type="submit" class="col-mx-auto" value="Update Comment "/>
+    </form>
+</section>

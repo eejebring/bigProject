@@ -1,14 +1,14 @@
 const db = require("../lib/db")
 const errorPage = require("../lib/errors")
-const {topicPage} = require("../get/topicPage")
 const {isAdminOrOwner} = require("../lib/checkIfOwnerOrAdmin")
+const {updateCommentPage} = require("../get/updateCommentPage")
 
 function updateComment(request, response) {
     const COMMENT_MAX_LENGTH = 255
     const COMMENT_MIN_LENGTH = 1
 
     const topicID = request.body.topicID
-    const content = request.body.commentContent
+    const content = request.body.content
     const commentID = request.body.commentID
 
     let formErrors = []
@@ -21,14 +21,14 @@ function updateComment(request, response) {
     }
 
     if (!formErrors.length) {
-        db.run(
-            "select ownerID from comment where commentID = ?"
-                [commentID],
-            (err, topicDetails) => {
-                if (err) {
+        db.get(
+            "select ownerID, topicID from comment where commentID = ?",
+            [commentID],
+            (err, commentDetails) => {
+                if (err || !commentDetails) {
                     errorPage.internalServer(response)
                 } else {
-                    if (!isAdminOrOwner(request, topicDetails.ownerID)) {
+                    if (!isAdminOrOwner(request, commentDetails.ownerID)) {
                         errorPage.unauthorized(response)
                     } else {
                         db.run(
@@ -38,14 +38,14 @@ function updateComment(request, response) {
                                 if (err) {
                                     errorPage.internalServer(response)
                                 } else {
-                                    response.redirect("/topic/" + topicID)
+                                    response.redirect("/topic/" + commentDetails.topicID)
                                 }
                             })
                     }
                 }
             })
     } else {
-        topicPage(request, response, {formErrors}, topicID)
+        updateCommentPage(request, response, {formErrors}, topicID)
     }
 }
 

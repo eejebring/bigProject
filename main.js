@@ -57,6 +57,7 @@ app.get("/logout", (request, response) => postRequest.logout(request, response))
 app.get("/createTopic", (request, response) => getPage.createTopicPage(request, response))
 app.get("/topic/:ID", (request, response) => getPage.topicPage(request, response))
 app.get("/updateTopic/:ID", (request, response) => getPage.updateTopicPage(request, response))
+app.get("/updateComment/:ID", (request, response) => getPage.updateCommentPage(request, response))
 
 app.post("/login", (request, response) => postRequest.login(request, response))
 app.post("/createAccount", (request, response) => postRequest.createAccount(request, response))

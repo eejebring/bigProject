@@ -1,7 +1,3 @@
-const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
-
-const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
 
 function createTopicPage(request, response, args) {

@@ -9,6 +9,9 @@
             <p class="tile-title">{{#if nickname}}{{nickname}}{{else}}{{username}}{{/if}}</p>
         </div>
         {{#if canDeleteTopic}}
+            <form class="tile-action" action="/updateTopic/{{topicID}}" method="get">
+                <button class="btn btn-primary">edit</button>
+            </form>
             <form action="/deleteTopic" method="post" class="tile-action">
                 <input type="hidden" name="topicID" value="{{topicID}}">
                 <button class="btn btn-primary">delete</button>
@@ -31,6 +34,9 @@
                 <p class="tile-subtitle">{{content}}</p>
             </div>
             {{#if canDeleteComment}}
+                <form class="tile-action" action="/updateComment/{{commentID}}" method="get">
+                    <button class="btn btn-primary">edit</button>
+                </form>
                 <form class="tile-action" action="/deleteComment" method="post">
                     <input type="hidden" name="topicID" value="{{../topicID}}">
                     <input type="hidden" name="commentID" value="{{commentID}}">
@@ -50,7 +56,8 @@
             <input type="hidden" name="topicID" value="{{topicID}}">
 
             <span class="label">New Comment</span>
-            <textarea name="commentContent" id="commentContent" placeholder="I would like to comment..." class="column col-12"></textarea>
+            <textarea name="commentContent" id="commentContent" placeholder="I would like to comment..."
+                      class="column col-12"></textarea>
             <input type="submit" value="Post Comment" class="col-mx-auto">
         </form>
     </section>

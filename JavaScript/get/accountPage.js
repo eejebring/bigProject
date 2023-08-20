@@ -1,5 +1,4 @@
-const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
+const db = require("../lib/db")
 
 const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")

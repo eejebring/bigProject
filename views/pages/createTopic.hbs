@@ -2,8 +2,8 @@
     <h2 class="text-center">{{#if title}}Update{{else}}Create{{/if}} Topic</h2>
 </header>
 <section>
-    <form action="{{#if title}}updateTopic{{else}}createTopic{{/if}}" method="post" class="columns">
-        <h3 class="column col-12">Change nickname</h3>
+    <form action="{{#if title}}/updateTopic{{else}}/createTopic{{/if}}" method="post" class="columns">
+        <h3 class="column col-12">{{#if title}}Update{{else}}Create{{/if}} Topic</h3>
         {{#if formErrors}}
             <ul class="column col-12">
                 {{#each formErrors}}
@@ -20,7 +20,7 @@
         <textarea name="context" id="context" class="column col-12"
                   placeholder="The question is...">{{context}}</textarea>
 
-        {{#if topicID}}<input type="hidden" name="topicID" id="topicID" value="{{topicID}}">{{/if}}
+        <input type="hidden" name="topicID" id="topicID" value="{{topicID}}">
         <input type="submit" class="col-mx-auto" value="{{#if title}}Update{{else}}Create{{/if}} topic "/>
     </form>
 </section>

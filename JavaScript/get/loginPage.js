@@ -1,8 +1,3 @@
-const bcrypt = require("bcryptjs")
-const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
-
-const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
 
 function loginPage(request, response, args) {

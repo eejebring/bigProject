@@ -3,10 +3,8 @@ const db = new sqlite3.Database("./database.db")
 
 const errorPage = require("../lib/errors")
 const mainModel = require("../lib/mainModel")
-const user = require("./accountPage")
 const {DELETED_USER_TITLE} = require("./indexPage")
 const {getInitials} = require("../lib/getInitials")
-const {isOwner} = require("../lib/checkIfOwner")
 const {isAdminOrOwner} = require("../lib/checkIfOwnerOrAdmin")
 
 function topicPage(request, response, args, topicID) {

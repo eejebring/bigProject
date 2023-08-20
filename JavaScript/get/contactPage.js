@@ -1,6 +1,6 @@
-const mainModel = require("./mainModel")
+const mainModel = require("../lib/mainModel")
 
-function renderPage(request, response, args) {
+function contactPage(request, response, args) {
     model = {
         ...args,
         ...mainModel(request),
@@ -9,4 +9,4 @@ function renderPage(request, response, args) {
     response.render("pages/contact.hbs", model)
 }
 
-module.exports = {renderPage}
+module.exports = {contactPage}

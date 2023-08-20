@@ -9,19 +9,8 @@ const sqlite3 = require("sqlite3")
 const db = new sqlite3.Database("./database.db")
 const fs = require("fs")
 
-const index = require("./JavaScript/index")
-const about = require("./JavaScript/about")
-const contact = require("./JavaScript/contact")
-const account = {
-    user: require("./JavaScript/user"),
-    login: require("./JavaScript/login"),
-    create: require("./JavaScript/createAccount")
-}
-const topic = {
-    create: require("./JavaScript/createTopic"),
-    read: require("./JavaScript/topic")
-}
-const comment = require("./JavaScript/comment")
+const getPage = require("./JavaScript/get")
+const postRequest = require("./JavaScript/post")
 
 fs.readFile("./dbSetup.sql", "utf8", (err, dbSetup) => {
     if (err) {
@@ -57,25 +46,25 @@ app.use(
 )
 
 app.get("/", (request, response) => response.redirect("/index/1"))
-app.get("/index/:ID", (request, response) => index.renderPage(request, response))
-app.get("/about", (request, response) => about.renderPage(request, response))
-app.get("/contact", (request, response) => contact.renderPage(request, response))
-app.get("/login", (request, response) => account.login.renderPage(request, response))
-app.get("/createAccount", (request, response) => account.create.renderPage(request, response))
-app.get("/account", (request, response) => account.user.renderPage(request, response))
-app.get("/logout", (request, response) => account.login.logout(request, response))
-app.get("/createTopic", (request, response) => topic.create.renderPage(request, response))
-app.get("/topic/:ID", (request, response) => topic.read.renderPage(request, response))
+app.get("/index/:ID", (request, response) => getPage.indexPage(request, response))
+app.get("/about", (request, response) => getPage.aboutPage(request, response))
+app.get("/contact", (request, response) => getPage.contactPage(request, response))
+app.get("/login", (request, response) => getPage.loginPage(request, response))
+app.get("/createAccount", (request, response) => getPage.accountCreationPage(request, response))
+app.get("/account", (request, response) => getPage.accountPage(request, response))
+app.get("/logout", (request, response) => postRequest.logout(request, response))
+app.get("/createTopic", (request, response) => getPage.createTopicPage(request, response))
+app.get("/topic/:ID", (request, response) => getPage.topicPage(request, response))
 
-app.post("/login", (request, response) => account.login.loginRequest(request, response))
-app.post("/createAccount", (request, response) => account.create.createNew(request, response))
-app.post("/changeNickname", (request, response) => account.user.changeNickname(request, response))
-app.post("/changePassword", (request, response) => account.user.changePassword(request, response))
-app.post("/deleteAccount", (request, response) => account.user.deleteAccount(request, response))
-app.post("/createTopic", (request, response) => topic.create.createNew(request, response))
-app.post("/deleteTopic", (request, response) => topic.read.deleteTopic(request, response))
-app.post("/createComment", (request, response) => topic.read.addComment(request, response))
-app.post("/deleteComment", (request, response) => topic.read.deleteComment(request, response))
-app.post("/uploadImage", (request, response) => account.user.uploadImage(request, response))
+app.post("/login", (request, response) => postRequest.login(request, response))
+app.post("/createAccount", (request, response) => postRequest.createAccount(request, response))
+app.post("/changeNickname", (request, response) => postRequest.updateNickname(request, response))
+app.post("/changePassword", (request, response) => postRequest.updatePassword(request, response))
+app.post("/deleteAccount", (request, response) => postRequest.deleteAccount(request, response))
+app.post("/createTopic", (request, response) => postRequest.createTopic(request, response))
+app.post("/deleteTopic", (request, response) => postRequest.deleteTopic(request, response))
+app.post("/createComment", (request, response) => postRequest.createComment(request, response))
+app.post("/deleteComment", (request, response) => postRequest.deleteComment(request, response))
+app.post("/uploadImage", (request, response) => postRequest.uploadImage(request, response))
 
 app.listen(8080)

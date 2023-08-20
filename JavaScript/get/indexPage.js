@@ -1,13 +1,13 @@
 const sqlite3 = require("sqlite3")
 const db = new sqlite3.Database("./database.db")
 
-const errorPage = require("./errors")
-const mainModel = require("./mainModel")
-const user = require("./user")
+const errorPage = require("../lib/errors")
+const mainModel = require("../lib/mainModel")
+const user = require("./accountPage")
 
 const DELETED_USER_TITLE = "[Deleted account]"
 
-function renderPage(request, response) {
+function indexPage(request, response) {
     const TOPICS_PER_PAGE = 5
     const currentPageNr = parseInt(request.params.ID)
 
@@ -63,4 +63,4 @@ function renderPage(request, response) {
         })
 }
 
-module.exports = {renderPage, DELETED_USER_TITLE}
+module.exports = {indexPage, DELETED_USER_TITLE}

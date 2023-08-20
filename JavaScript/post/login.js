@@ -1,20 +1,9 @@
+const errorPage = require("../lib/errors")
 const bcrypt = require("bcryptjs")
-const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
+const db = require("../lib/db")
+const {renderPage} = require("../get/loginPage")
 
-const errorPage = require("./errors")
-const mainModel = require("./mainModel")
-
-function renderPage(request, response, args) {
-    let model = {
-        ...args,
-        ...mainModel(request),
-        pageTitle: "Login"
-    }
-    response.render("pages/login.hbs", model)
-}
-
-function loginRequest(request, response, username = request.body.username, loginPassword = request.body.password) {
+function login(request, response, username = request.body.username, loginPassword = request.body.password) {
     db.get("select accountID, password, roleID from account where username = ?",
         [username],
         (err, accountDetails) => {
@@ -46,9 +35,4 @@ function loginRequest(request, response, username = request.body.username, login
         })
 }
 
-function logout(request, response) {
-    request.session.destroy()
-    response.redirect("/")
-}
-
-module.exports = {loginRequest, renderPage, logout}
+module.exports = {login}

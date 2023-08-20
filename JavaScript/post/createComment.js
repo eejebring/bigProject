@@ -1,8 +1,9 @@
-const errorPage = require("./errors")
+const errorPage = require("../lib/errors")
+const db = require("../lib/db")
 
-const {renderPage} = require("./topic")
+const {renderPage} = require("../get/topicPage")
 
-function addComment(request, response) {
+function createComment(request, response) {
     const COMMENT_MAX_LENGTH = 255
     const COMMENT_MIN_LENGTH = 1
 
@@ -36,26 +37,4 @@ function addComment(request, response) {
     }
 }
 
-function editComment() {
-
-}
-
-function deleteComment(request, response) {
-    const topicID = request.body.topicID
-    const requesterID = request.session.accountID
-    const commentID = request.body.commentID
-
-    db.run(
-        "delete from comment where commentID = ? and ownerID = ?",
-        [commentID, requesterID],
-        (err) => {
-            if (err) {
-                errorPage.internalServer(response)
-            } else {
-                response.redirect("/topic/" + topicID)
-            }
-        }
-    )
-}
-
-module.exports = {addComment, editComment, deleteComment}
+module.exports = {createComment}

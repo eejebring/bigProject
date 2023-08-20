@@ -1,22 +1,12 @@
 const sqlite3 = require("sqlite3")
 const db = new sqlite3.Database("./database.db")
 
-const errorPage = require("./errors")
-const mainModel = require("./mainModel")
-const user = require("./user")
-const {DELETED_USER_TITLE} = require("./index")
+const errorPage = require("../lib/errors")
+const mainModel = require("../lib/mainModel")
+const user = require("./accountPage")
+const {DELETED_USER_TITLE} = require("./indexPage")
 
-const ADMIN_ROLE_ID = 2
-
-function isOwner(request, ownerID) {
-    return ownerID && ownerID == request.session.accountID
-}
-
-function isAdminOrOwner(request, ownerID) {
-    return request.session.roleID == ADMIN_ROLE_ID || isOwner(request, ownerID)
-}
-
-function renderPage(request, response, args, topicID) {
+function topicPage(request, response, args, topicID) {
     if (!topicID) {
         topicID = parseInt(request.params.ID)
     }
@@ -65,22 +55,4 @@ function renderPage(request, response, args, topicID) {
     )
 }
 
-function deleteTopic(request, response) {
-    const topicID = request.body.topicID
-    const requesterID = request.session.accountID
-
-    db.run(
-        "delete from topic where topicID = ? and ownerID = ?",
-        [topicID, requesterID],
-        (err) => {
-            if (err) {
-                errorPage.internalServer(response)
-
-            } else {
-                response.redirect("/")
-            }
-        }
-    )
-}
-
-module.exports = {renderPage, deleteTopic}
+module.exports = {topicPage}

@@ -1,17 +1,10 @@
 const bcrypt = require("bcryptjs")
 const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
+const db = require("../lib/db")
 
-const errorPage = require("./errors")
-const login = require("./login")
-
-function renderPage(request, response, formErrors) {
-    const model = {
-        pageTitle: "Create Account",
-        formErrors: formErrors
-    }
-    response.render("pages/create.hbs", model)
-}
+const errorPage = require("../lib/errors")
+const {login} = require("./login")
+const {renderPage} = require("../get/accountCreationPage")
 
 function createNew(request, response) {
     const USERNAME_MIN_LENGTH = 5
@@ -61,7 +54,7 @@ function createNew(request, response) {
                             if (err) {
                                 errorPage.internalServer(response)
                             } else {
-                                login.loginRequest(request, response, username, password)
+                                login(request, response, username, password)
                             }
                         })
 
@@ -72,4 +65,4 @@ function createNew(request, response) {
         })
 }
 
-module.exports = {renderPage, createNew}
+module.exports = {createNew}

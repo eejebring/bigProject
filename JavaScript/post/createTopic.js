@@ -1,19 +1,8 @@
-const sqlite3 = require("sqlite3")
-const db = new sqlite3.Database("./database.db")
+const errorPage = require("../lib/errors")
+const {renderPage} = require("../get/createTopicPage")
+const db = require("../lib/db")
 
-const errorPage = require("./errors")
-const mainModel = require("./mainModel")
-
-function renderPage(request, response, args) {
-    const model = {
-        ...args,
-        ...mainModel(request),
-        pageTitle: "Create Topic"
-    }
-    response.render("pages/createTopic.hbs", model)
-}
-
-function createNew(request, response) {
+function createTopic(request, response) {
     const TITLE_MIN_LENGTH = 1
     const TITLE_MAX_LENGTH = 64
     const CONTEXT_MIN_LENGTH = 0
@@ -68,9 +57,4 @@ function createNew(request, response) {
     }
 }
 
-function editTopic() {
-
-}
-
-
-module.exports = {createNew, renderPage}
+module.exports = {createTopic}

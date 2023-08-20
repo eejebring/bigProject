@@ -1,6 +1,6 @@
-const mainModel = require("./mainModel")
+const mainModel = require("../lib/mainModel")
 
-function renderPage(request, response, args) {
+function aboutPage(request, response, args) {
 
     const model = {
         ...args,
@@ -10,4 +10,4 @@ function renderPage(request, response, args) {
     response.render("pages/about.hbs", model)
 }
 
-module.exports = {renderPage}
+module.exports = {aboutPage}

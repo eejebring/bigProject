@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="Split all functions to their own file">
+    <list default="true" id="fe1bc7a9-5359-4950-a076-3bf506f2b33d" name="Changes" comment="fixed references">
+      <change afterPath="$PROJECT_DIR$/JavaScript/get/updateTopicPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/get/createTopicPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/get/createTopicPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/get/indexPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/get/indexPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/get/topicPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/get/topicPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/post/createAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/createAccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/post/createTopic.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/createTopic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/post/updateNickname.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/updateNickname.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/post/updatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/updatePassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/post/uploadImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/uploadImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/get/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/get/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/lib/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/lib/errors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/post/deleteTopic.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/deleteTopic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/post/updateComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/updateComment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/post/updateTopic.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/post/updateTopic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/createTopic.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/createTopic.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,7 @@
       <workItem from="1692535578718" duration="334000" />
       <workItem from="1692536058105" duration="49000" />
       <workItem from="1692536302200" duration="2356000" />
-      <workItem from="1692547442261" duration="8444000" />
+      <workItem from="1692547442261" duration="15644000" />
     </task>
     <task id="LOCAL-00001" summary="Created a multi-document structure for the javascript.&#10;Finished all the account tools.&#10;Added the thread and comment tabes to the database.">
       <created>1665776654093</created>
@@ -254,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692553650592</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed references">
+      <option name="closed" value="true" />
+      <created>1692559384104</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692559384104</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +293,8 @@
     <MESSAGE value="Fixed some review complaints" />
     <MESSAGE value="Structure changes" />
     <MESSAGE value="Split all functions to their own file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split all functions to their own file" />
+    <MESSAGE value="fixed references" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed references" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

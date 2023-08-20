@@ -1,22 +1,26 @@
 <header>
-    <h2 class="text-center">Create Topic</h2>
+    <h2 class="text-center">{{#if title}}Update{{else}}Create{{/if}} Topic</h2>
 </header>
 <section>
-    <form action="createTopic" method="post" class="columns">
+    <form action="{{#if title}}updateTopic{{else}}createTopic{{/if}}" method="post" class="columns">
         <h3 class="column col-12">Change nickname</h3>
         {{#if formErrors}}
             <ul class="column col-12">
                 {{#each formErrors}}
-                    <li> <span class="label label-error">{{this}}</span></li>
+                    <li><span class="label label-error">{{this}}</span></li>
                 {{/each}}
             </ul>
         {{/if}}
         <label for="title" class="label text-right col-4">Title:</label>
-        <input name="title" id="title" type="text" class="column col-8 text-left" placeholder=""/>
+        <input name="title" id="title" type="text" class="column col-8 text-left" placeholder="Title"
+               value="{{title}}"/>
 
         <label for="context" class="label text-right col-4">Context:</label>
         <span class="column col-8 text-left">Max 512 symbols</span>
-        <textarea name="context" id="context" class="column col-12" placeholder="The question is..."></textarea>
-        <input type="submit" class="col-mx-auto" value="Create topic"/>
+        <textarea name="context" id="context" class="column col-12"
+                  placeholder="The question is...">{{context}}</textarea>
+
+        {{#if topicID}}<input type="hidden" name="topicID" id="topicID" value="{{topicID}}">{{/if}}
+        <input type="submit" class="col-mx-auto" value="{{#if title}}Update{{else}}Create{{/if}} topic "/>
     </form>
 </section>

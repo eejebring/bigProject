@@ -6,6 +6,7 @@ const {createTopicPage} = require("./createTopicPage")
 const {indexPage} = require("./indexPage")
 const {loginPage} = require("./loginPage")
 const {topicPage} = require("./topicPage")
+const {updateTopicPage} = require("./updateTopicPage")
 
 module.exports = {
     aboutPage,
@@ -15,5 +16,6 @@ module.exports = {
     createTopicPage,
     indexPage,
     loginPage,
-    topicPage
+    topicPage,
+    updateTopicPage
 }

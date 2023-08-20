@@ -17,7 +17,8 @@ fs.readFile("./dbSetup.sql", "utf8", (err, dbSetup) => {
     if (err) {
         console.error(err)
     } else {
-        db.run(dbSetup, (err) => {
+        console.log(dbSetup)
+        db.exec(dbSetup, (err) => {
             if (err) {
                 console.error(err)
             }

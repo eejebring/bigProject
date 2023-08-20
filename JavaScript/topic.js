@@ -108,7 +108,7 @@ function addComment(request, response) {
                 if (err) {
                     errorPage.internalServer(response)
                 } else {
-                    response.redirect("/topic:" + topicID)
+                    response.redirect("/topic/" + topicID)
                 }
             }
         )

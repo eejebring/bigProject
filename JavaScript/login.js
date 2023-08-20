@@ -3,7 +3,7 @@ const sqlite3 = require("sqlite3")
 const db = new sqlite3.Database("./database.db")
 
 const errorPage = require("./errors")
-const mainModel = require("./layout")
+const mainModel = require("./mainModel")
 
 function renderPage(request, response, args) {
     let model = {

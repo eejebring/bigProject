@@ -1,4 +1,4 @@
-const mainModel = require("./layout")
+const mainModel = require("./mainModel")
 
 function renderPage(request, response, args) {
     model = {

@@ -3,7 +3,7 @@ const db = new sqlite3.Database("./database.db")
 const bcrypt = require("bcryptjs")
 
 const errorPage = require("./errors")
-const mainModel = require("./layout")
+const mainModel = require("./mainModel")
 const {logout} = require("./login")
 
 function renderPage(request, response, args = {}) {

@@ -21,6 +21,7 @@ const topic = {
     create: require("./JavaScript/createTopic"),
     read: require("./JavaScript/topic")
 }
+const comment = require("./JavaScript/comment")
 
 fs.readFile("./dbSetup.sql", "utf8", (err, dbSetup) => {
     if (err) {

@@ -2,7 +2,7 @@ const sqlite3 = require("sqlite3")
 const db = new sqlite3.Database("./database.db")
 
 const errorPage = require("./errors")
-const mainModel = require("./layout")
+const mainModel = require("./mainModel")
 const user = require("./user")
 
 const DELETED_USER_TITLE = "[Deleted account]"
